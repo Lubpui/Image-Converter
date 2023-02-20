@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from PIL import Image
-import numpy as np
 import io
 
 app = Flask(__name__)
