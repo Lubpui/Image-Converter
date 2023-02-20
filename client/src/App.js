@@ -35,10 +35,13 @@ function App() {
     formData.append("image", image);
     formData.append("format", format);
     try {
-      const response = await fetch("http://localhost:5000/convert", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://lubpui-psychic-eureka-xg9qj95wgjp3p6vg-5000.preview.app.github.dev/convert",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       if (!response.ok) {
         throw new Error("Conversion failed.");
       }
@@ -66,11 +69,10 @@ function App() {
         </div>
 
         <div className="img-box">
-          {error && <p>{error}</p>}
           {image && <img src={URL.createObjectURL(image)} alt="Original" />}
           {converted && <img src={converted} alt="Converted" />}
         </div>
-
+        {error && <p>{error}</p>}
         <div className="button-box">
           <input
             className="btn2"
